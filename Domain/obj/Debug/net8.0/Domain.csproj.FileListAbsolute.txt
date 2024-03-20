@@ -1,0 +1,11 @@
+D:\Faculta_3\2\II\LinkedIn\ProiectII\Domain\bin\Debug\net8.0\Domain.deps.json
+D:\Faculta_3\2\II\LinkedIn\ProiectII\Domain\bin\Debug\net8.0\Domain.dll
+D:\Faculta_3\2\II\LinkedIn\ProiectII\Domain\bin\Debug\net8.0\Domain.pdb
+D:\Faculta_3\2\II\LinkedIn\ProiectII\Domain\obj\Debug\net8.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Faculta_3\2\II\LinkedIn\ProiectII\Domain\obj\Debug\net8.0\Domain.AssemblyInfoInputs.cache
+D:\Faculta_3\2\II\LinkedIn\ProiectII\Domain\obj\Debug\net8.0\Domain.AssemblyInfo.cs
+D:\Faculta_3\2\II\LinkedIn\ProiectII\Domain\obj\Debug\net8.0\Domain.csproj.CoreCompileInputs.cache
+D:\Faculta_3\2\II\LinkedIn\ProiectII\Domain\obj\Debug\net8.0\Domain.dll
+D:\Faculta_3\2\II\LinkedIn\ProiectII\Domain\obj\Debug\net8.0\refint\Domain.dll
+D:\Faculta_3\2\II\LinkedIn\ProiectII\Domain\obj\Debug\net8.0\Domain.pdb
+D:\Faculta_3\2\II\LinkedIn\ProiectII\Domain\obj\Debug\net8.0\ref\Domain.dll
