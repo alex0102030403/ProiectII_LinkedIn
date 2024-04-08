@@ -15,3 +15,4 @@ D:\Faculta_3\2\II\LinkedIn\ProiectII\Application\obj\Debug\net8.0\Application.dl
 D:\Faculta_3\2\II\LinkedIn\ProiectII\Application\obj\Debug\net8.0\refint\Application.dll
 D:\Faculta_3\2\II\LinkedIn\ProiectII\Application\obj\Debug\net8.0\Application.pdb
 D:\Faculta_3\2\II\LinkedIn\ProiectII\Application\obj\Debug\net8.0\ref\Application.dll
+D:\Faculta_3\2\II\LinkedIn\ProiectII\Application\obj\Debug\net8.0\Application.sourcelink.json

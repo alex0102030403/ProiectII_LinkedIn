@@ -18,5 +18,9 @@ namespace Domain
 
         public string Company { get; set; }
 
+        public bool IsClosed { get; set; }
+
+        public ICollection<JobApplication> Applicants { get; set; } = new List<JobApplication>();
+
     }
 }

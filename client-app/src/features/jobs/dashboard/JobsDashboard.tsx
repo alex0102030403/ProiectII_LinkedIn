@@ -1,57 +1,40 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Grid, List } from "semantic-ui-react";
 import JobsList from "./JobsList";
-import { Job } from "../../../app/models/job";
 import JobsDetails from "../details/JobsDetails";
 import JobForm from "../form/JobForm";
+import { useStore } from "../../../app/stores/store";
+import { observer } from "mobx-react-lite";
+import LoadingComponents from "../../../app/layout/LoadingComponents";
+import JobsFilter from "./JobsFilter";
 
 
-interface Props{
-    jobs: Job[];
-    selectedJob: Job | undefined;
-    selectJob: (id: string) => void;
-    cancelSelectJob: () => void;
-    editMode: boolean;
-    openForm: (id: string) => void;
-    closeForm: () => void;
-    createOrEdit: (job: Job) => void;
-    handleDeleteJob: (id: string) => void;
-    submitting: boolean;
+export default observer(function JobsDashboard() {
 
-}
+    const {jobStore} = useStore();
+    const {loadJobs, jobRegistry} = jobStore;
 
-export default function JobsDashboard({jobs, selectJob, selectedJob, cancelSelectJob, editMode, 
-    openForm, closeForm, createOrEdit, handleDeleteJob, submitting}: Props) {
+
+    useEffect(() => {
+       if(jobRegistry.size <= 1) loadJobs();
+  
+    }, [jobStore]);
+  
+  
+    if (jobStore.loadingInitial) return <LoadingComponents inverted={false} content={'Loading Jobs...'} />
+
     return (
         <Grid>
             <Grid.Column width='10'>
-                <JobsList 
-                jobs={jobs} 
-                selectJob={selectJob} 
-                handleDeleteJob={handleDeleteJob}
-                submitting={submitting}
-                />
+                <JobsList />
             </Grid.Column>
 
             <Grid.Column width='6'>
-                {selectedJob && !editMode && 
-                <JobsDetails 
-                jobs={selectedJob} 
-                cancelSelectJob={cancelSelectJob}
-                openForm={openForm}
-                />}
-                {editMode && 
-                <JobForm  
-                job={selectedJob} 
-                closeForm={closeForm} 
-                createOrEdit={createOrEdit}
-                submitting={submitting}
-                />
-                }
+                <JobsFilter />
             </Grid.Column>
 
             
             
         </Grid>
     )
-}
+})

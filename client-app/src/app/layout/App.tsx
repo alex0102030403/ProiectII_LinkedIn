@@ -1,111 +1,51 @@
 import { Fragment, useEffect, useState } from 'react'
 import './styles.css';
-import { Container, Header, List } from 'semantic-ui-react';
+import { Button, Container, Header, List } from 'semantic-ui-react';
 import { Job } from '../models/job';
 import NavBar from './NavBar';
 import JobsDashboard from '../../features/jobs/dashboard/JobsDashboard';
-import {v4 as uuid} from 'uuid';
 import agent from '../api/agent';
 import LoadingComponents from './LoadingComponents';
+import { useStore } from '../stores/store';
+import { observe } from 'mobx';
+import { observer } from 'mobx-react-lite';
+import { Outlet, useLocation } from 'react-router-dom';
+import HomePage from '../home/HomePage';
+import ModalContainer from '../common/modals/ModalContainer';
 
 function App() {
-  
-  const [jobs, setJobs] = useState<Job[]>([]);
-  const [selectedJob, setSelectedJob] = useState<undefined | Job>(undefined);
-  const [editMode, setEditMode] = useState(false);
-  const [loading, setLoading] = useState(true);
-  const [submitting, setSubmitting] = useState(false);
-  
+
+  const location = useLocation();
+
+  const {commonStore, userStore} = useStore();
 
   useEffect(() => {
-
-    agent.Jobs.list()
-      .then(response => {
-        let jobs: Job[] = [];
-        response.forEach(job => {
-          job.date = job.date.split('T')[0];
-          jobs.push(job);
-        })
-        setJobs(jobs);
-        setLoading(false);
-      });
-
-  }, []);
-
-  function handleSelectJob(id: string) {
-    setSelectedJob(jobs.find(x => x.id === id));
-  }
-
-  function handleCancelSelectJob() {
-    setSelectedJob(undefined);
-  }
-
-  function handleFormOpen(id?: string) {
-    id ? handleSelectJob(id) : handleCancelSelectJob();
-    setEditMode(true);
-  }
-
-  function handleFormClose() {
-    setEditMode(false);
-  }
-
-  function handleCreateOrEditJob(job: Job) {
-
-    setSubmitting(true);
-    if (job.id) {
-      agent.Jobs.update(job)
-        .then(() => {
-          setJobs([...jobs.filter(x => x.id !== job.id), job]);
-          setSelectedJob(job);
-          setEditMode(false);
-          setSubmitting(false);
-        })
+    if(commonStore.token){
+      userStore.getUser().finally(() => commonStore.setAppLoaded());
     } else {
-      job.id = uuid();
-      agent.Jobs.create(job)
-        .then(() => {
-          setJobs([...jobs, job]);
-          setSelectedJob(job);
-          setEditMode(false);
-          setSubmitting(false);
-        })
+      commonStore.setAppLoaded();
     }
+  },[commonStore, userStore])
 
-  }
+  if(!commonStore.appLoaded) return <LoadingComponents content='Loading app...' inverted={false}/>
 
-  function handleDeleteJob(id: string) {
-    setSubmitting(true);
-
-    agent.Jobs.delete(id)
-      .then(() => {
-        setJobs([...jobs.filter(x => x.id !== id)]);
-        setSubmitting(false);
-      })
-    
-  }
-
-  if (loading) return <LoadingComponents inverted={false} content={''} />
   return (
     <>
-      <NavBar openForm={handleFormOpen} />
+    <ModalContainer />
+    {location.pathname === '/' ? <HomePage /> : (
+      <>
+      <NavBar />
+      
       <Container style={{ marginTop: '7em' }}>
-        <Header as='h1' content='Job List' />
-        <JobsDashboard 
-        jobs={jobs} 
-        selectedJob={selectedJob}
-        selectJob={handleSelectJob}
-        cancelSelectJob={handleCancelSelectJob}
-        editMode={editMode}
-        openForm={handleFormOpen}
-        closeForm={handleFormClose}
-        createOrEdit={handleCreateOrEditJob}
-        handleDeleteJob={handleDeleteJob}
-        submitting={submitting}
-        />
+        <Outlet />
       </Container>
+      </>
+    )
+    }
+      
       
     </>
   )
 }
 
-export default App
+export default observer(App)

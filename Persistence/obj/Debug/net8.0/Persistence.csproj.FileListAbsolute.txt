@@ -13,3 +13,4 @@ D:\Faculta_3\2\II\LinkedIn\ProiectII\Persistence\obj\Debug\net8.0\Persistence.dl
 D:\Faculta_3\2\II\LinkedIn\ProiectII\Persistence\obj\Debug\net8.0\refint\Persistence.dll
 D:\Faculta_3\2\II\LinkedIn\ProiectII\Persistence\obj\Debug\net8.0\Persistence.pdb
 D:\Faculta_3\2\II\LinkedIn\ProiectII\Persistence\obj\Debug\net8.0\ref\Persistence.dll
+D:\Faculta_3\2\II\LinkedIn\ProiectII\Persistence\obj\Debug\net8.0\Persistence.sourcelink.json

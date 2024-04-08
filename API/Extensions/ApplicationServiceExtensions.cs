@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using Application.Core;
+using Application.Interfaces;
 using Application.Jobs;
+using Infrastructure.Security;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 
@@ -29,6 +31,9 @@ namespace API.Extensions
                 cfg.RegisterServicesFromAssembly(typeof(List.Handler).Assembly));
 
             services.AddAutoMapper(typeof(MappingProfiles).Assembly);
+            services.AddHttpContextAccessor();
+            services.AddScoped<IUserAccessor, UserAccessor>();
+
 
             return services;
         }

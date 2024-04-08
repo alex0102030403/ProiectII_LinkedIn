@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
     Button,
   Card,
@@ -6,39 +6,45 @@ import {
   CardDescription,
   CardHeader,
   CardMeta,
+  Grid,
   Icon,
   Image,
 } from "semantic-ui-react";
 import { Job } from "../../../app/models/job";
+import { useStore } from "../../../app/stores/store";
+import LoadingComponents from "../../../app/layout/LoadingComponents";
+import { observer } from "mobx-react-lite";
+import { Link, useParams } from "react-router-dom";
+import JobsDetailedHeader from "./JobsDetaledHeader";
+import JobsDetailedInfo from "./JobsDetailedInfo";
+import JobsDetailedChat from "./JobsDetailedChat";
+import JobsDetailedSidebar from "./JobsDetailedSidebar";
 
-interface Props {
-    jobs: Job;
-    cancelSelectJob: () => void;
-    openForm: (id: string) => void;
-   
-}
+export default observer(function JobsDetails() {
 
-export default function JobsDetails({ jobs, cancelSelectJob, openForm }: Props) {
+  const {jobStore} = useStore();
+  const {selectedJob: jobs, loadJob, loadingInitial} = jobStore;
+  const {id} = useParams();
+
+  useEffect(() => {
+    if (id) loadJob(id);
+  }, [id, loadJob]);
+  
+  
+  if (loadingInitial || !jobs) return <LoadingComponents inverted={false} content={""} />;
+
   return (
-    <Card fluid>
-      <Image src={`faang.png`} wrapped ui={false} />
-      <CardContent>
-        <CardHeader>{jobs.title}</CardHeader>
-        <CardMeta>
-          <span className="date">{jobs.date}</span>
-        </CardMeta>
-        <CardDescription>
-          {jobs.description}
-        </CardDescription>
-      </CardContent>
-      <CardContent extra>
-        <Card.Content extra>
-            <Button.Group widths="2">
-                <Button onClick={() => openForm(jobs.id)} basic color="blue" content="Edit" />
-                <Button onClick={() => cancelSelectJob()} basic color="grey" content="Cancel" />
-            </Button.Group>
-        </Card.Content>
-      </CardContent>
-    </Card>
+    <Grid>
+      <Grid.Column width={10}>
+        <JobsDetailedHeader job={jobs} />
+        <JobsDetailedInfo job={jobs}/>
+        <JobsDetailedChat />
+      </Grid.Column>
+      <Grid.Column width={6}>
+        <JobsDetailedSidebar />
+      </Grid.Column>
+
+    </Grid>
   );
 }
+)
