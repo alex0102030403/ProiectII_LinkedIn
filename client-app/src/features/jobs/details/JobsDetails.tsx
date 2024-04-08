@@ -38,11 +38,9 @@ export default observer(function JobsDetails() {
       <Grid.Column width={10}>
         <JobsDetailedHeader job={jobs} />
         <JobsDetailedInfo job={jobs}/>
-        <JobsDetailedChat />
+        
       </Grid.Column>
-      <Grid.Column width={6}>
-        <JobsDetailedSidebar />
-      </Grid.Column>
+     
 
     </Grid>
   );
