@@ -163,6 +163,10 @@
             "MediatR": {
               "target": "Package",
               "version": "[12.2.0, )"
+            },
+            "Tiny.RestClient": {
+              "target": "Package",
+              "version": "[1.7.1, )"
             }
           },
           "imports": [

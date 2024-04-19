@@ -502,6 +502,19 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
+      "Newtonsoft.Json/11.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "SQLitePCLRaw.bundle_e_sqlite3/2.1.6": {
         "type": "package",
         "dependencies": {
@@ -681,6 +694,22 @@
         },
         "build": {
           "buildTransitive/net6.0/System.Text.Json.targets": {}
+        }
+      },
+      "Tiny.RestClient/1.7.1": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/Tiny.RestClient.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Tiny.RestClient.dll": {
+            "related": ".pdb;.xml"
+          }
         }
       },
       "Domain/1.0.0": {
@@ -1466,6 +1495,36 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "Newtonsoft.Json/11.0.2": {
+      "sha512": "IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
+      "type": "package",
+      "path": "newtonsoft.json/11.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "newtonsoft.json.11.0.2.nupkg.sha512",
+        "newtonsoft.json.nuspec"
+      ]
+    },
     "SQLitePCLRaw.bundle_e_sqlite3/2.1.6": {
       "sha512": "BmAf6XWt4TqtowmiWe4/5rRot6GerAeklmOPfviOvwLoF5WwgxcJHAxZtySuyW9r9w+HLILnm8VfJFLCUJYW8A==",
       "type": "package",
@@ -1684,6 +1743,37 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "Tiny.RestClient/1.7.1": {
+      "sha512": "e9kX0FFvkbWrU+m9tx5izcMir4p9PGIV0XKKOgH3tWPzB/OjV+IcyDiWmCWWWsn3Gr7eoz9a3fApyYgY2U1AOw==",
+      "type": "package",
+      "path": "tiny.restclient/1.7.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "icon.png",
+        "lib/net45/Tiny.RestClient.dll",
+        "lib/net45/Tiny.RestClient.pdb",
+        "lib/net45/Tiny.RestClient.xml",
+        "lib/net46/Tiny.RestClient.dll",
+        "lib/net46/Tiny.RestClient.pdb",
+        "lib/net46/Tiny.RestClient.xml",
+        "lib/netstandard1.1/Tiny.RestClient.dll",
+        "lib/netstandard1.1/Tiny.RestClient.pdb",
+        "lib/netstandard1.1/Tiny.RestClient.xml",
+        "lib/netstandard1.2/Tiny.RestClient.dll",
+        "lib/netstandard1.2/Tiny.RestClient.pdb",
+        "lib/netstandard1.2/Tiny.RestClient.xml",
+        "lib/netstandard1.3/Tiny.RestClient.dll",
+        "lib/netstandard1.3/Tiny.RestClient.pdb",
+        "lib/netstandard1.3/Tiny.RestClient.xml",
+        "lib/netstandard2.0/Tiny.RestClient.dll",
+        "lib/netstandard2.0/Tiny.RestClient.pdb",
+        "lib/netstandard2.0/Tiny.RestClient.xml",
+        "tiny.restclient.1.7.1.nupkg.sha512",
+        "tiny.restclient.nuspec"
+      ]
+    },
     "Domain/1.0.0": {
       "type": "project",
       "path": "../Domain/Domain.csproj",
@@ -1701,7 +1791,8 @@
       "Domain >= 1.0.0",
       "FluentValidation.AspNetCore >= 11.3.0",
       "MediatR >= 12.2.0",
-      "Persistence >= 1.0.0"
+      "Persistence >= 1.0.0",
+      "Tiny.RestClient >= 1.7.1"
     ]
   },
   "packageFolders": {
@@ -1772,6 +1863,10 @@
           "MediatR": {
             "target": "Package",
             "version": "[12.2.0, )"
+          },
+          "Tiny.RestClient": {
+            "target": "Package",
+            "version": "[1.7.1, )"
           }
         },
         "imports": [

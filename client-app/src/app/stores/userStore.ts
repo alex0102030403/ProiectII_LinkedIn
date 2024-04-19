@@ -1,4 +1,4 @@
-import { makeAutoObservable, runInAction } from "mobx";
+import { get, makeAutoObservable, runInAction } from "mobx";
 import { User, UserFormValues } from "../models/user";
 import agent from "../api/agent";
 import { store } from "./store";
@@ -6,9 +6,12 @@ import { router } from "../router/Routes";
 
 export default class UserStore{
     user: User | null = null;
+    allUsers: User[] = [];
+    userDetails: User | null = null;
 
     constructor(){
         makeAutoObservable(this);
+        this.getUsers();
     }
 
     get isLoggedIn(){
@@ -61,6 +64,32 @@ export default class UserStore{
             runInAction(() => this.user = user);
         } catch (error){
             console.log(error);
+        }
+    }
+
+    getUsers = async () => {
+        try{
+            const users = await agent.Users.list();
+            runInAction(() => {
+                this.allUsers = users;
+            })
+        } catch (error){
+            console.log(error);
+        }
+    }
+
+    getUserDetails = async (id: string): Promise<User> => {
+        try{
+            const user = await agent.Users.details(id);
+            runInAction(() => {
+                this.userDetails = user;
+                
+                
+            })
+            return user;
+        } catch (error){
+            console.log(error);
+            throw error;
         }
     }
 }

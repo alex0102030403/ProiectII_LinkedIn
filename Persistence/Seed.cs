@@ -41,6 +41,41 @@ namespace Persistence
                 }
             }
             
+            //if (context.Companies.Any()) return;
+
+            var companies = new List<Company>
+            {
+                
+                new Company
+                {
+                    Name = "Company 2",
+                    Description = "Company 2 description",
+                    Category = "drinks",
+                    City = "London",
+                    Country = "UK",
+                    Image = "null",
+                    Jobs = new List<CompanyJobs>
+                    {   
+                        
+                    },
+                    Employees = new List<CompanyEmployee>
+                    {
+                        new CompanyEmployee
+                        {
+                            AppUser = userManager.Users.First(),
+                            Position = "Owner",
+                            IsOwner = true
+                        }
+                    }
+                },
+                
+            };
+            context.Companies.AddRange(companies);
+            await context.SaveChangesAsync();
+
+            
+
+            
 
 
             if (context.Jobs.Any()) return;
@@ -161,6 +196,21 @@ namespace Persistence
 
             await context.Jobs.AddRangeAsync(jobs);
             await context.SaveChangesAsync();
+
+            if (context.CompanyJobs.Any()) return;
+
+            var company = new List<CompanyJobs>
+            {
+                new CompanyJobs
+                {
+                    Company = companies.First(),
+                    Job = jobs.Last(),
+                    IsOwner = true
+                }
+            };
+
+            await context.CompanyJobs.AddRangeAsync(company);
+            await context.SaveChangesAsync(); 
         }
     }
 }

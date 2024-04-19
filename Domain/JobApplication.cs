@@ -2,6 +2,7 @@ namespace Domain
 {
     public class JobApplication
     {
+        
         public string AppUserId { get; set; }
 
         public AppUser AppUser { get; set; }

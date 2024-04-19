@@ -12,7 +12,8 @@
           "Domain": "1.0.0",
           "FluentValidation.AspNetCore": "11.3.0",
           "MediatR": "12.2.0",
-          "Persistence": "1.0.0"
+          "Persistence": "1.0.0",
+          "Tiny.RestClient": "1.7.1"
         },
         "runtime": {
           "Application.dll": {}
@@ -278,6 +279,14 @@
         }
       },
       "Microsoft.Extensions.Primitives/8.0.0": {},
+      "Newtonsoft.Json/11.0.2": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.0.2.21924"
+          }
+        }
+      },
       "SQLitePCLRaw.bundle_e_sqlite3/2.1.6": {
         "dependencies": {
           "SQLitePCLRaw.lib.e_sqlite3": "2.1.6",
@@ -421,6 +430,17 @@
       "System.Text.Json/8.0.0": {
         "dependencies": {
           "System.Text.Encodings.Web": "8.0.0"
+        }
+      },
+      "Tiny.RestClient/1.7.1": {
+        "dependencies": {
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Tiny.RestClient.dll": {
+            "assemblyVersion": "1.7.1.0",
+            "fileVersion": "1.7.1.0"
+          }
         }
       },
       "Domain/1.0.0": {
@@ -658,6 +678,13 @@
       "path": "microsoft.extensions.primitives/8.0.0",
       "hashPath": "microsoft.extensions.primitives.8.0.0.nupkg.sha512"
     },
+    "Newtonsoft.Json/11.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
+      "path": "newtonsoft.json/11.0.2",
+      "hashPath": "newtonsoft.json.11.0.2.nupkg.sha512"
+    },
     "SQLitePCLRaw.bundle_e_sqlite3/2.1.6": {
       "type": "package",
       "serviceable": true,
@@ -706,6 +733,13 @@
       "sha512": "sha512-OdrZO2WjkiEG6ajEFRABTRCi/wuXQPxeV6g8xvUJqdxMvvuCCEk86zPla8UiIQJz3durtUEbNyY/3lIhS0yZvQ==",
       "path": "system.text.json/8.0.0",
       "hashPath": "system.text.json.8.0.0.nupkg.sha512"
+    },
+    "Tiny.RestClient/1.7.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-e9kX0FFvkbWrU+m9tx5izcMir4p9PGIV0XKKOgH3tWPzB/OjV+IcyDiWmCWWWsn3Gr7eoz9a3fApyYgY2U1AOw==",
+      "path": "tiny.restclient/1.7.1",
+      "hashPath": "tiny.restclient.1.7.1.nupkg.sha512"
     },
     "Domain/1.0.0": {
       "type": "project",

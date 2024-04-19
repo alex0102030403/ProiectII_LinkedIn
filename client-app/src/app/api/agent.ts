@@ -1,6 +1,7 @@
 import axios, { AxiosResponse } from "axios";
 import { Job } from "../models/job";
 import { User, UserFormValues } from "../models/user";
+import type { Company } from "../models/company";
 import CommonStore from "../stores/commonStore";
 
 const sleep = (delay: number) => {
@@ -58,9 +59,27 @@ const Account = {
     register: (user: UserFormValues) => requests.post<User>('/account/register', user)
 }
 
+const Users = {
+    list: () => requests.get<User[]>('/users'),
+    details: (id: string) => requests.get<User>(`/users/${id}`)
+}
+
+const Companys = {
+    list: () => requests.get<Company[]>('/company'),
+    addEmployee: (id: string , user : User) => requests.post<void>(`/company/${id}/addEmployee`, user),
+    removeEmployee: (id: string) => requests.del<void>(`/company/${id}/removeEmployee`),
+    addJob: (id: string,job : Job) => requests.post<void>(`/company/${id}/addJob`, job),
+    details: (id: string) => requests.get<Company>(`/company/${id}`),
+    create: (company: Company) => requests.post<void>('/company', company),
+    update: (company: Company) => requests.put<void>(`/company/${company.id}`, company),
+    delete: (id: string) => requests.del<void>(`/company/${id}`)
+}
+
 const agent = {
     Jobs,
-    Account
+    Account,
+    Users,
+    Companys
 }
 
 export default agent;

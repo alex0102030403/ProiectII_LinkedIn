@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "8EtjHulBkXEn81Yn1wc2x1ZxwHKPEuhrhZsRlWerfe21SiiSKqCkjsIW0qqENniIydi/zeZyjjP/vUziayqChg==",
+  "dgSpecHash": "B1uPcxqNaZ/u1yGWoLmT2DIb4qdhHHxr57LXfWs7rQwesTa5HsSjGhGg7SUPIuHoHAI/1rwy8X10A97r3UFyMw==",
   "success": true,
   "projectFilePath": "D:\\Faculta_3\\2\\II\\LinkedIn\\ProiectII\\API\\API.csproj",
   "expectedPackageFiles": [
@@ -141,7 +141,8 @@
     "C:\\Users\\alexm\\.nuget\\packages\\system.text.regularexpressions\\4.3.1\\system.text.regularexpressions.4.3.1.nupkg.sha512",
     "C:\\Users\\alexm\\.nuget\\packages\\system.threading\\4.3.0\\system.threading.4.3.0.nupkg.sha512",
     "C:\\Users\\alexm\\.nuget\\packages\\system.threading.channels\\6.0.0\\system.threading.channels.6.0.0.nupkg.sha512",
-    "C:\\Users\\alexm\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512"
+    "C:\\Users\\alexm\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
+    "C:\\Users\\alexm\\.nuget\\packages\\tiny.restclient\\1.7.1\\tiny.restclient.1.7.1.nupkg.sha512"
   ],
   "logs": []
 }

@@ -1,11 +1,14 @@
 using System.Security.Claims;
 using API.DTOs;
 using API.Services;
+using Application.Users;
 using Domain;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+
 
 
 
@@ -17,6 +20,7 @@ namespace API.Controllers
     public class AccountController : ControllerBase
     {
         private readonly UserManager<AppUser> _userManager;
+        
 
         private readonly TokenService _tokenService;
         public AccountController(UserManager<AppUser> userManager, TokenService tokenService)
@@ -90,17 +94,13 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<UserDto>> GetCurrentUser()
+        public async Task<ActionResult<AppUser>> GetCurrentUser()
         {
             var user = await _userManager.FindByEmailAsync(User.FindFirstValue(ClaimTypes.Email));
 
-            return new UserDto
-            {
-                DisplayName = user.DisplayName,
-                Token = _tokenService.CreateToken(user),
-                Username = user.UserName,
-                Image = null
-            };
+            return user;
         }
+
+        
     }
 }

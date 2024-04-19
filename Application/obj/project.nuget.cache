@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "iWfJ7Ol/ZxMJ/ORvKuTvu+zpq+ORHsdPr+72Llbq1/YKmA4VuvawHRytdZ9+hYke4Ccz74pbW62js5CP1lDnew==",
+  "dgSpecHash": "cKz0NY0JqJltW+DgIkCgTX/RiS8tgyjWfmWHvXEpjq5WsIu4TOJZETkM+5kJBpic/J+M1/pAESliQCDcnzp1dQ==",
   "success": true,
   "projectFilePath": "D:\\Faculta_3\\2\\II\\LinkedIn\\ProiectII\\Application\\Application.csproj",
   "expectedPackageFiles": [
@@ -34,13 +34,15 @@
     "C:\\Users\\alexm\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\alexm\\.nuget\\packages\\microsoft.extensions.options\\8.0.2\\microsoft.extensions.options.8.0.2.nupkg.sha512",
     "C:\\Users\\alexm\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
+    "C:\\Users\\alexm\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
     "C:\\Users\\alexm\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.1.6\\sqlitepclraw.bundle_e_sqlite3.2.1.6.nupkg.sha512",
     "C:\\Users\\alexm\\.nuget\\packages\\sqlitepclraw.core\\2.1.6\\sqlitepclraw.core.2.1.6.nupkg.sha512",
     "C:\\Users\\alexm\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.1.6\\sqlitepclraw.lib.e_sqlite3.2.1.6.nupkg.sha512",
     "C:\\Users\\alexm\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\2.1.6\\sqlitepclraw.provider.e_sqlite3.2.1.6.nupkg.sha512",
     "C:\\Users\\alexm\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
     "C:\\Users\\alexm\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
-    "C:\\Users\\alexm\\.nuget\\packages\\system.text.json\\8.0.0\\system.text.json.8.0.0.nupkg.sha512"
+    "C:\\Users\\alexm\\.nuget\\packages\\system.text.json\\8.0.0\\system.text.json.8.0.0.nupkg.sha512",
+    "C:\\Users\\alexm\\.nuget\\packages\\tiny.restclient\\1.7.1\\tiny.restclient.1.7.1.nupkg.sha512"
   ],
   "logs": []
 }

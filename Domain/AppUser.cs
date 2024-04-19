@@ -10,5 +10,7 @@ namespace Domain
 
         public ICollection<JobApplication> Applications { get; set; }
         
+        public ICollection<CompanyEmployee> Companies { get; set; }
+        
     }
 }

@@ -2,6 +2,10 @@ namespace Domain
 {
     public class Job
     {
+        public Job()
+        {
+            Applicants = new List<JobApplication>();
+        }
         public Guid Id { get; set; }
 
         public string Title { get; set; }
@@ -21,6 +25,6 @@ namespace Domain
         public bool IsClosed { get; set; }
 
         public ICollection<JobApplication> Applicants { get; set; } = new List<JobApplication>();
-
+        
     }
 }

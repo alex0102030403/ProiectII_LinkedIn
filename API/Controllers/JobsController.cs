@@ -13,7 +13,7 @@ namespace API.Controllers
     public class JobsController : BaseApiController
     {
         
-
+        [AllowAnonymous]
         [HttpGet] //api/Jobs
         public async Task<ActionResult<List<JobDto>>> GetJobs()
         {

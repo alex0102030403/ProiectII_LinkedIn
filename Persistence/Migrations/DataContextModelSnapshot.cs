@@ -87,6 +87,79 @@ namespace Persistence.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("Domain.Company", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Category")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("City")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Country")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Companies");
+                });
+
+            modelBuilder.Entity("Domain.CompanyEmployee", b =>
+                {
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("CompanyId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsOwner")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Position")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("AppUserId", "CompanyId");
+
+                    b.HasIndex("CompanyId");
+
+                    b.ToTable("CompanyEmployees");
+                });
+
+            modelBuilder.Entity("Domain.CompanyJobs", b =>
+                {
+                    b.Property<string>("CompanyId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("CompanyJobId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsOwner")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<Guid?>("JobId")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("CompanyId", "CompanyJobId");
+
+                    b.HasIndex("CompanyJobId");
+
+                    b.HasIndex("JobId");
+
+                    b.ToTable("CompanyJobs");
+                });
+
             modelBuilder.Entity("Domain.Job", b =>
                 {
                     b.Property<Guid>("Id")
@@ -268,6 +341,42 @@ namespace Persistence.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Domain.CompanyEmployee", b =>
+                {
+                    b.HasOne("Domain.AppUser", "AppUser")
+                        .WithMany("Companies")
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Company", "Company")
+                        .WithMany("Employees")
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("Company");
+                });
+
+            modelBuilder.Entity("Domain.CompanyJobs", b =>
+                {
+                    b.HasOne("Domain.Company", "Company")
+                        .WithMany("Jobs")
+                        .HasForeignKey("CompanyJobId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Job", "Job")
+                        .WithMany()
+                        .HasForeignKey("JobId");
+
+                    b.Navigation("Company");
+
+                    b.Navigation("Job");
+                });
+
             modelBuilder.Entity("Domain.JobApplication", b =>
                 {
                     b.HasOne("Domain.AppUser", "AppUser")
@@ -341,6 +450,15 @@ namespace Persistence.Migrations
             modelBuilder.Entity("Domain.AppUser", b =>
                 {
                     b.Navigation("Applications");
+
+                    b.Navigation("Companies");
+                });
+
+            modelBuilder.Entity("Domain.Company", b =>
+                {
+                    b.Navigation("Employees");
+
+                    b.Navigation("Jobs");
                 });
 
             modelBuilder.Entity("Domain.Job", b =>

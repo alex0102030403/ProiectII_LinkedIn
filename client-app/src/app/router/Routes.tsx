@@ -4,6 +4,7 @@ import JobsDashboard from "../../features/jobs/dashboard/JobsDashboard";
 import JobForm from "../../features/jobs/form/JobForm";
 import JobsDetails from "../../features/jobs/details/JobsDetails";
 import LoginForm from "../../features/users/LoginForm";
+import Profile from "../../features/users/Profile";
 
 export const routes: RouteObject[] = [
     {
@@ -29,6 +30,11 @@ export const routes: RouteObject[] = [
             {
                 path: "login",
                 element: <LoginForm />
+            },
+            {
+                path: "profile/:username",
+                element: <Profile />
+
             }
         ]
     }

@@ -161,3 +161,4 @@ D:\Faculta_3\2\II\LinkedIn\ProiectII\API\bin\Debug\net8.0\FluentValidation.dll
 D:\Faculta_3\2\II\LinkedIn\ProiectII\API\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
 D:\Faculta_3\2\II\LinkedIn\ProiectII\API\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
 D:\Faculta_3\2\II\LinkedIn\ProiectII\API\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\Faculta_3\2\II\LinkedIn\ProiectII\API\bin\Debug\net8.0\Tiny.RestClient.dll
